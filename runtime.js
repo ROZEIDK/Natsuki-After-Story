@@ -1,4 +1,3 @@
-/* Nova game runtime — generated */
 (function () {
   "use strict";
 
