@@ -1,0 +1,19 @@
+/* Nova exported game styles */
+html, body { margin: 0; padding: 0; height: 100%; background: #000; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+#nova-root { position: fixed; inset: 0; }
+.nova-outer { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.nova-canvas { position: relative; overflow: hidden; }
+
+@keyframes novaFade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes novaZoomIn { from { opacity: 0; transform: scale(var(--s,1)) translateZ(0); } }
+@keyframes novaLoadingBar { from { width: 0% } to { width: 100% } }
+
+.nova-anim-fade { animation: novaFade .3s ease-out; }
+.nova-anim-zoom-in { animation: novaFade .3s ease-out; }
+.nova-anim-zoom-out { animation: novaFade .3s ease-out; }
+.nova-anim-slide-left { animation: novaFade .3s ease-out; }
+.nova-anim-slide-right { animation: novaFade .3s ease-out; }
+.nova-anim-slide-up { animation: novaFade .3s ease-out; }
+.nova-anim-slide-down { animation: novaFade .3s ease-out; }
+
+button { font-family: inherit; }
