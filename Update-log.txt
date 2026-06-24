@@ -1,5 +1,3 @@
 Coming in the next update
 --------------------------
-1. Being able to go to Natsuki's house.
-2. New UI/UX updates to the game.
 3. Music Tab, you'll now be able to listen to music.
