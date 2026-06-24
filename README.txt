@@ -42,3 +42,9 @@ Contact
 -------
 For questions or suggestions, please open an issue in the repository.
 
+Other After Stories
+-------------------
+- Monika After Story(Browser) - Coming Soon
+- Sayori After Story(Browser) - Coming Soon
+- Yuri After Story (Browser) - Coming soon
+
