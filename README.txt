@@ -6,6 +6,9 @@ How to run
 You can open `index.html` locally in your browser, or visit the hosted game at
 https://rozeidk.github.io/Natsuki-After-Story/ to play the game in your browser.
 
+Github version not working?: You can use the cloudflare pages version.
+https://natsuki-after-story.botroze102.workers.dev/ Note that this version keep the last update, not the current version.
+
 How to play
 -----------
 - Click or tap to advance dialogue and scenes.
