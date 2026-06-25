@@ -1,3 +1,4 @@
 Coming in the next update
 --------------------------
 3. Music Tab, you'll now be able to listen to music.
+4. Mobile Support, you'll soon be able to play on your phone or table.
