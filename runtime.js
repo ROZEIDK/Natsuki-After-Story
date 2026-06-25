@@ -1,52 +1,6 @@
 (function () {
   "use strict";
 
-  // ---------- audio manager ----------
-  var audioMap = {};            // audioId -> src
-  var keyedNodes = {};          // key -> HTMLAudioElement
-  var audioUnlocked = false;
-  var pendingAudio = [];
-  function armAudioUnlock() {
-    if (audioUnlocked) return;
-    var unlock = function () {
-      audioUnlocked = true;
-      var q = pendingAudio.slice(); pendingAudio.length = 0;
-      for (var i = 0; i < q.length; i++) { try { q[i](); } catch (e) {} }
-      window.removeEventListener("pointerdown", unlock, true);
-      window.removeEventListener("touchstart", unlock, true);
-      window.removeEventListener("keydown", unlock, true);
-    };
-    window.addEventListener("pointerdown", unlock, true);
-    window.addEventListener("touchstart", unlock, true);
-    window.addEventListener("keydown", unlock, true);
-  }
-  function playAudio(audioId, opts) {
-    if (!audioId) return;
-    var src = audioMap[audioId]; if (!src) return;
-    opts = opts || {};
-    var key = opts.key || null;
-    var start = function () {
-      if (key && keyedNodes[key]) { try { keyedNodes[key].pause(); } catch (e) {} }
-      var node = new Audio(src);
-      node.loop = !!opts.loop;
-      node.volume = Math.max(0, Math.min(1, opts.volume == null ? 1 : opts.volume));
-      if (key) keyedNodes[key] = node;
-      var p = node.play();
-      if (p && typeof p.catch === "function") {
-        p.catch(function () {
-          pendingAudio.push(function () { try { node.play().catch(function(){}); } catch(e){} });
-          armAudioUnlock();
-        });
-      }
-    };
-    if (audioUnlocked) start();
-    else { pendingAudio.push(start); armAudioUnlock(); }
-  }
-  function stopAudioKey(key) {
-    var n = keyedNodes[key]; if (n) { try { n.pause(); } catch (e) {} delete keyedNodes[key]; }
-  }
-
-
   function hexToRgba(hex, alpha) {
     var h = String(hex || "#000000").replace("#", "");
     var full = h.length === 3 ? h.split("").map(function (c) { return c + c; }).join("") : h;
@@ -116,8 +70,6 @@
     if (visited[trigger.id]) return;
     visited[trigger.id] = true;
     var run = function () {
-      if (trigger.onFireAudioId) playAudio(trigger.onFireAudioId, { volume: trigger.audioVolume });
-
       if (trigger.linkedButtonId) {
         for (var i = 0; i < siblings.length; i++) {
           if (siblings[i].id === trigger.linkedButtonId && siblings[i].type === "button") {
@@ -136,8 +88,6 @@
     visited = visited || {};
     if (visited[btn.id]) return;
     visited[btn.id] = true;
-    if (btn.onClickAudioId) playAudio(btn.onClickAudioId, { volume: btn.audioVolume });
-
     if (btn.linkedTriggerId) {
       for (var i = 0; i < siblings.length; i++) {
         if (siblings[i].id === btn.linkedTriggerId && siblings[i].type === "trigger") {
@@ -277,11 +227,7 @@
       if (iconNode) lb.appendChild(iconNode);
       var lbl = document.createElement("span"); lbl.textContent = el.label; lb.appendChild(lbl);
       applyCustomCss(lb, el.customCss);
-      lb.addEventListener("click", function () {
-        if (el.onClickAudioId) playAudio(el.onClickAudioId, { volume: el.audioVolume });
-        if (el.url) window.open(el.url, "_blank", "noopener,noreferrer");
-      });
-
+      lb.addEventListener("click", function () { if (el.url) window.open(el.url, "_blank", "noopener,noreferrer"); });
       return lb;
     }
     if (el.type === "button") {
@@ -315,12 +261,6 @@
     this.scriptsById = {};
     var arr = project.scripts || [];
     for (var i = 0; i < arr.length; i++) this.scriptsById[arr[i].id] = arr[i];
-    // Index audio assets for the manager
-    audioMap = {};
-    var au = project.audio || [];
-    for (var ai = 0; ai < au.length; ai++) audioMap[au[ai].id] = au[ai].src;
-    this._slideAudioKey = null;
-
 
     // Build outer scaled canvas
     this.canvasOuter = document.createElement("div");
@@ -385,18 +325,6 @@
     for (var i = 0; i < this.project.slides.length; i++) if (this.project.slides[i].id === slideId) slide = this.project.slides[i];
     if (!slide) return;
     this.currentSlideId = slideId;
-
-    // Stop previous slide-enter audio, start this slide's if any
-    if (this._slideAudioKey) { stopAudioKey(this._slideAudioKey); this._slideAudioKey = null; }
-    if (slide.onEnterAudio && slide.onEnterAudio.audioId) {
-      this._slideAudioKey = "slide:" + slide.id;
-      playAudio(slide.onEnterAudio.audioId, {
-        loop: !!slide.onEnterAudio.loop,
-        volume: slide.onEnterAudio.volume,
-        key: this._slideAudioKey,
-      });
-    }
-
 
     this.canvasInner.innerHTML = "";
     // Clear shorthand FIRST so it doesn't wipe background-image set below.
