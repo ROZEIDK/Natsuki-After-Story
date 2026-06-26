@@ -1,6 +1,6 @@
 Announcement
 ------------
-The next update is planned to release - 7/5/2026, at 12:00 AM MST
+The next update is planned to release - 7/12/2026, at 12:00 AM MST (**Delayed**)
 This Update will have the follow content:
   1. New mini-games
   2. All of Natsuki's house
