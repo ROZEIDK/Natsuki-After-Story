@@ -15,4 +15,4 @@
 
 ## Thank you
 
-That is all for the next update. We hope you enjoy it when it releases — thank you for your support!
+That is all for the next update. We hope you enjoy it when it releases, thank you for your support!
