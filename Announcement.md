@@ -1,5 +1,5 @@
-Announcement
-------------
+#Announcement
+============
 The next update is planned to release - 7/12/2026, at 12:00 AM MST (**Delayed**)
 
 This Update will have the follow content:
