@@ -1,12 +1,19 @@
-Announcement
-============
-The next update is planned to release - 7/12/2026, at 12:00 AM MST (**Delayed**)
+# Announcement
+==============
 
-This Update will have the follow content:
+## Upcoming Update
 
-  1. New mini-games
-  2. All of Natsuki's house
-  3. An updated music tab, so that it works in game. (Note: The music will only be in the cloudflare version.)
-  4. New easter eggs, you'll be able to do certain things to unlock certain things.
+- Planned release: **July 12, 2026** at **12:00 AM MST**
+- Status: **Delayed**
 
-This will be all for the next update, I hope you enjoy when it releases. Thank you for your support!
+## What’s included
+
+1. New mini-games
+2. Natsuki’s full house
+3. Updated music tab so it works in-game
+   - Note: music support is only available in the Cloudflare version
+4. New easter eggs with unlockable content
+
+## Thank you
+
+That is all for the next update. We hope you enjoy it when it releases — thank you for your support!
