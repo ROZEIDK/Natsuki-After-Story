@@ -1,7 +1,9 @@
 Announcement
 ------------
 The next update is planned to release - 7/12/2026, at 12:00 AM MST (**Delayed**)
+
 This Update will have the follow content:
+
   1. New mini-games
   2. All of Natsuki's house
   3. An updated music tab, so that it works in game. (Note: The music will only be in the cloudflare version.)
