@@ -1,5 +1,4 @@
 # Announcement
-==============
 
 ## Upcoming Update
 
