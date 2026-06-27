@@ -10,6 +10,10 @@ If the GitHub Pages version is not working, you can use the Cloudflare Pages ver
 https://natsuki-after-story.botroze102.workers.dev/
 Note that this version may not include the latest updates from the repository.
 
+Want the latest features and the most complete experience? Try the Netlify version:
+https://natsuki-after-story.netlify.app/
+This build includes the full game and all enhancements, including the special Cloudflare version features.
+
 How to play
 -----------
 - Click or tap to advance dialogue and scenes.
