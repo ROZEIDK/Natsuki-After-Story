@@ -39,7 +39,7 @@ Screenshots
 
 Important Updates
 -----------------
-- A working Windows `.exe` version of Natsuki After Story is now available.
+- A working Windows `.exe` version of Natsuki After Story is in testing.
 - The browser versions remain live on GitHub Pages, Cloudflare Pages, and Netlify.
 - For the best experience, use the latest build and report any issues through the repository.
 
